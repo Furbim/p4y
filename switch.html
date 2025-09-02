@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="consolestyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div id="cabecalho">
+            <img height="100" width="180" src="P4Ypng.png" alt="">
+            <a href="index.html">Início</a>
+            <a href="pag4.html">Quem somos</a>
+            <div id="barrapesquisa">
+                <div id="barrapesquisad">
+                <svg xmlns="http://www.w3.org/2000/svg" height="85%" width="28"
+                    viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path fill="#828282"
+                        d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+                </svg>
+                <p style="font-weight: lighter; font-size: 1.1em; color: #828282;">
+                    Pesquisar
+                </p>
+                </div>
+            </div>
+            <a href="#" id="contato-link">Contato</a>
+            <a href="pag3.html">Cadastro</a>
+            <a href="alugueis.html">Alugueis</a>
+            <button id="tema-btn" style="margin-left:20px; padding:10px 20px; border-radius:8px; border:0; background:#fff; color:#087cf4; font-weight:bold; cursor:pointer;">
+    Tema Claro
+</button>
+        </div>
+    </header>
+    <section>
+        <main>
+            <div style="width: 30%; height: 70vh; background-color: #828282;">
+                <img style="background-color: #494848; border-radius: 8px;" width="100%" src="switch console.png" alt="">
+            </div>
+            <div style="background-color: #828282; width: 35%; height: 80vh; justify-content: space-around; display: flex; flex-direction: column;">
+                <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+                <H1 style="font-size: 2em;">Console Switch</H1>
+               <h2>R$60,00</h2>
+               <p>Valor por final de semana</p>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-around; height: 10vh;">
+                    <p style="font-size: 1.5em;">Disponível</p>
+                    <button id="alugar-btn" data-img="switch console.png">
+    Alugar agora
+</button>
+                </div>
+            </div>
+        </main>
+    </section>
+    <div id="popup-contato" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
+      <div style="background:#087cf4; padding:30px; border-radius:10px; min-width:300px; text-align:center; position:relative;">
+        <span id="fechar-popup" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:1.5em;">&times;</span>
+        <h2>Contato</h2>
+        <p>Envie um e-mail para contato@play4you.com.br</p>
+        <p>Ou mande mensagem para (31) 99683-5249</p>
+      </div>
+    </div>
+
+    <script>
+    document.getElementById('contato-link').onclick = function(e) {
+        e.preventDefault();
+        document.getElementById('popup-contato').style.display = 'flex';
+    };
+    document.getElementById('fechar-popup').onclick = function() {
+        document.getElementById('popup-contato').style.display = 'none';
+    };
+    document.getElementById('alugar-btn').onclick = function() {
+    localStorage.setItem('aluguelConsoleImg', this.getAttribute('data-img'));
+    window.location.href = 'alugueis.html';
+};
+    </script>
+    <script>
+window.onload = function() {
+    var img = localStorage.getItem('aluguelConsoleImg');
+    if (img) {
+        var div = document.createElement('div');
+        div.style = "display:flex; justify-content:center; align-items:center; margin:30px;";
+        var image = document.createElement('img');
+        image.src = img;
+        image.alt = "Console alugado";
+        image.style = "max-width:300px; border-radius:10px; background:#494848;";
+        div.appendChild(image);
+        document.body.appendChild(div);
+        localStorage.removeItem('aluguelConsoleImg');
+    }
+};
+</script>
+<script>
+const temaBtn = document.getElementById('tema-btn');
+temaBtn.onclick = function() {
+    const body = document.body;
+    if (body.classList.contains('light-theme')) {
+        body.classList.remove('light-theme');
+        temaBtn.textContent = 'Tema Claro';
+    } else {
+        body.classList.add('light-theme');
+        temaBtn.textContent = 'Tema Escuro';
+    }
+};
+</script>
+</body>
+</html>

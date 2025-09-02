@@ -1,0 +1,138 @@
+:root {
+            --primary-color: #2a7ae4;
+            --secondary-color: #f5f5f5;
+            --accent-color: #ffb300;
+            --text-color: #222;
+            --button-bg: #2a7ae4;
+            --button-text: #fff;
+        }
+        body {
+            background-color: #201c24;
+            color: white;
+            font-family: Proxima Nova, -apple-system, Helvetica Neue, helvetica, roboto, arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            background: #29252e;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            padding: 32px 24px;
+        }
+        h1 {
+            color: #087cf4;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .beneficios-list {
+            margin-bottom: 32px;
+        }
+        .beneficio {
+            margin-bottom: 16px;
+            font-size: 1.1em;
+        }
+        .promo {
+            color: #ffb300;
+            font-weight: bold;
+        }
+        .btn-voltar {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background: #087cf4;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 24px;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+        .btn-voltar:hover {
+            background: #1769aa;
+        }
+        .simulador {
+            background: #23202a;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+        }
+        .pontos {
+            font-size: 1.3em;
+            margin-bottom: 16px;
+            color: #087cf4;
+        }
+        .btn-alugar {
+            background: #ffb300;
+            color: #222;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 24px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-alugar:hover {
+            background: #ffa000;
+        }
+        .toggle-modo {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: #ffb300;
+            color: #222;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-size: 0.95em;
+            cursor: pointer;
+            z-index: 10;
+        }
+        /* Modo claro */
+        body.light-theme {
+            background-color: #f6f8fc !important;
+            color: #1769aa !important;
+        }
+        body.light-theme .container {
+            background: #fff !important;
+            color: #1769aa !important;
+        }
+        body.light-theme h1 {
+            color: #1769aa !important;
+        }
+        body.light-theme .beneficio,
+        body.light-theme .pontos {
+            color: #1769aa !important;
+        }
+        body.light-theme .promo {
+            color: #ffb300 !important;
+        }
+        body.light-theme .btn-voltar {
+            background: #1769aa !important;
+            color: #fff !important;
+        }
+        body.light-theme .btn-voltar:hover {
+            background: #087cf4 !important;
+        }
+        body.light-theme .simulador {
+            background: #b3d4fc !important;
+            color: #1769aa !important;
+        }
+        body.light-theme .btn-alugar {
+            background: #ffb300 !important;
+            color: #222 !important;
+        }
+        body.light-theme .btn-alugar:hover {
+            background: #ffa000 !important;
+        }
+        body.light-theme .toggle-modo {
+            background: #ffb300 !important;
+            color: #222 !important;
+        }
