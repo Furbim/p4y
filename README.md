@@ -1,83 +1,79 @@
-# 🎮 GameRent - Sistema de Aluguel de PCs Gamer e Consoles
+# Play4You
 
-Projeto desenvolvido para a **Segunda Entrega da Segunda Etapa**, utilizando **Programação Orientada a Objetos**, **Arquitetura MVC** e implementando o padrão **Repository** para persistência de dados.  
+Marketplace de aluguel de videogames, PCs gamers e acessórios.
 
----
+## Sumário
+- Visão Geral
+- Tecnologias
+- Funcionalidades
+- Estrutura do Projeto
+- Comece Rápido
+- Configuração
+- Scripts de Banco de Dados
+- Rotas Principais
+- Upload de Imagens
 
-## 👥 Integrantes
+## Visão Geral
+Aplicação PHP (MVC simples) com páginas server-rendered, MySQL e assets estáticos em `public/`.
 
-- Vitor Hugo - 22402799  
-- Gustavo Alves - 12302023  
-- Leonardo Ávila - 12301876  
-- Guilherme Menezes - 12301388  
-- Heitor Oliveira - 12302295  
-- Thiago - (Matrícula não informada)
+## Tecnologias
+- PHP 8+
+- MySQL 8+
+- TailwindCSS (CDN) e Font Awesome
 
----
+## Funcionalidades
+- Catálogo com filtros, paginação e ordenação
+- Página de produto com galeria e reservas
+- Dashboard do usuário para cadastrar/editar produtos
+- Upload de múltiplas imagens por produto
+- Chat entre usuários
 
-## 🚀 Funcionalidades Implementadas (Segunda Etapa)
+## Estrutura do Projeto
+```
+config/           # constantes, rotas, banco
+controllers/      # controladores MVC
+core/             # base Model/Controller/DB
+models/           # modelos de dados
+public/           # assets estáticos (inclui uploads)
+scripts/          # SQL de criação/migrações e seed
+views/            # templates PHP (layouts + páginas)
+```
 
-1. Sistema de criação de conta  
-2. Visualização de seus aluguéis e prazos  
-3. Personalização das interfaces  
-4. Interface simples e responsiva  
-5. Cores que prendam o usuário  
-6. Chat de comunicação integrado  
-7. Salvar endereços de entrega/retirada  
-8. Planos e benefícios do Clube de Fidelidade  
-9. Botões intuitivos e de fácil navegação  
-10. Forte identidade visual da aplicação  
+## Comece Rápido
+1. Banco de dados
+```
+mysql -u root -p < scripts/database_setup.sql
+# opcional
+mysql -u root -p play4you < scripts/insert_sample_data.sql
+```
+2. Configure `config/database.php`.
+3. Rode o servidor dev:
+```
+php -S localhost:8000 -t .
+```
+Acesse `http://localhost:8000`.
 
----
+## Configuração
+- `config/constants.php`: SITE_URL, limites, cache, logs.
+- `config/database.php`: credenciais MySQL.
+- `config/routes.php`: path → controller/ação.
 
-## 📄 Estrutura das Páginas
+## Scripts de Banco de Dados
+- `scripts/database_setup.sql`: cria banco e tabelas.
+- `scripts/insert_sample_data.sql`: dados de exemplo.
 
-### 🏠 Página Inicial (`index.html`)
-- Apresentação da empresa e destaque para **aluguel de PC gamer e consoles**.  
-- Rodapé com link para o **Clube de Benefícios**.  
-- Menu superior com navegação: **Início, Quem Somos, Cadastro, Aluguéis**.  
-- Botão **Tema Claro/Escuro** para alternância visual.  
-- Popup de **Contato**.  
+## Rotas Principais
+- `/catalog` → Catálogo
+- `/product/{id}` → Produto
+- `/dashboard` → Painel
+- `/dashboard/add-product` → Cadastrar
+- `/dashboard/edit-product/{id}` → Editar
+- `/chat`, `/about`, `/contact`, `/terms`
 
-### 🎮 Páginas de Consoles (`series.html`, `ps4.html`, etc.)
-- Visual padronizado via `consolestyle.css`.  
-- Exibição de **imagem, preço e disponibilidade**.  
-- Botão **Alugar agora** que redireciona para `alugueis.html`.  
-- Menu superior, popup de contato e tema claro/escuro.  
+## Upload de Imagens
+- Campo: `products.images` (JSON array de caminhos relativos ex.: `public/uploads/products/arquivo.jpg`)
+- Salvamento em `public/uploads/products`
+- Tipos aceitos: jpg, png, webp (MIME); até 5MB
+- Exibição: usa a primeira imagem; fallback para placeholder
 
-### 📝 Cadastro (`pag3.html`)
-- Formulário para cadastrar usuário (**nome, celular, e-mail, endereço**).  
-- Dados salvos localmente.  
-- Mensagem de sucesso após envio.  
-
-### ℹ️ Quem Somos (`pag4.html`)
-- Informações sobre a empresa e sua missão.  
-- Menu superior, popup de contato e tema claro/escuro.  
-
-### 📦 Aluguéis (`alugueis.html`)
-- Exibe o console escolhido.  
-- Botões **Continuar para pagamento** ou **Cancelar aluguel**.  
-- Integração com o **chat de dúvidas**.  
-- Menu superior, popup de contato e tema claro/escuro.  
-
-### ⭐ Benefícios (`beneficios.html`)
-- Mostra vantagens do programa de fidelidade.  
-- Simulador para **acumular pontos fictícios**.  
-- Botão para alternar **tema claro/escuro**.  
-- Botão de retorno para a página inicial.  
-
----
-
-## 🛠️ Tecnologias Utilizadas
-- **HTML5, CSS3, JavaScript**  
-- **MVC (Model, View, Controller)**  
-- **Repository Pattern** para persistência de dados  
-- **LocalStorage** (salvamento local de cadastros e simulações)  
-
----
-
-## 📌 Como Rodar o Projeto
-
-1. Clone o repositório:  
-   ```bash
-   git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
+Para detalhes completos, consulte a pasta `docs/` (a ser adicionada).
